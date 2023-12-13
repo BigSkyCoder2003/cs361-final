@@ -26,7 +26,7 @@ def main()
 
   world = World.new("My Data", [w, w2, t, t2])
 
-  puts world.to_geojson()
+  puts world.generate_geojson()
 end
 
 if File.identical?(__FILE__, $0)
