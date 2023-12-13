@@ -1,3 +1,4 @@
+require 'json'
 class Waypoint
 
 
@@ -12,9 +13,9 @@ class Waypoint
       @type = type
     end
   
-    def get_waypoint_json(indent=0)
+    def get_json_feature(indent=0)
+      #generate waypointJSON output fields from waypoint
       j = '{"type": "Feature",'
-      # if name is not nil or type is not nil
       j += '"geometry": {"type": "Point","coordinates": '
       j += "[#{@longitude},#{@latitude}"
       if elevation != nil
@@ -26,15 +27,16 @@ class Waypoint
         if name != nil
           j += '"title": "' + @name + '"'
         end
-        if type != nil  # if type is not nil
+        if type != nil
           if name != nil
             j += ','
           end
-          j += '"icon": "' + @type + '"'  # type is the icon
+          j += '"icon": "' + @type + '"'
         end
         j += '}'
       end
       j += "}"
       return j
     end
+    
   end

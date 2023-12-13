@@ -9,7 +9,7 @@ class Track
     @segments = segment_objects
   end
 
-  def get_track_json()
+  def get_json_feature()
     j = '{'
     j += '"type": "Feature", '
     if @name != nil
@@ -20,7 +20,6 @@ class Track
     j += '"geometry": {'
     j += '"type": "MultiLineString",'
     j +='"coordinates": ['
-    # Loop through all the segment objects
     @segments.each_with_index do |s, index|
       if index > 0
         j += ","

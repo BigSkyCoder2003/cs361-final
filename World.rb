@@ -8,17 +8,13 @@ class World
     end
   
     def to_geojson(indent=0)
-      # Write stuff
+      # generate geoJSON output heading
       s = '{"type": "FeatureCollection","features": ['
       @features.each_with_index do |f,i|
         if i != 0
           s +=","
         end
-          if f.class == Track
-              s += f.get_track_json
-          elsif f.class == Waypoint
-              s += f.get_waypoint_json
-        end
+       s += f.get_json_feature
       end
       s + "]}"
     end
