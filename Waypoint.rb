@@ -13,8 +13,7 @@ class Waypoint
       @type = type
     end
   
-    def get_json_feature(indent=0)
-      #generate waypointJSON output fields from waypoint
+    def generate_json_feature(indent=0)
       j = '{"type": "Feature",'
       j += '"geometry": {"type": "Point","coordinates": '
       j += "[#{@longitude},#{@latitude}"

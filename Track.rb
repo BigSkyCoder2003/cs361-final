@@ -5,11 +5,10 @@ class Track
     segments.each do |s|
       segment_objects.append(TrackSegment.new(s))
     end
-    # set segments to segment_objects
     @segments = segment_objects
   end
 
-  def get_json_feature()
+  def generate_json_feature()
     j = '{'
     j += '"type": "Feature", '
     if @name != nil
@@ -20,18 +19,16 @@ class Track
     j += '"geometry": {'
     j += '"type": "MultiLineString",'
     j +='"coordinates": ['
-    @segments.each_with_index do |s, index|
+    @segments.each_with_index do |segment, index|
       if index > 0
         j += ","
       end
       j += '['
-      # Loop through all the coordinates in the segment
       tsj = ''
-      s.coordinates.each do |c|
+      segment.coordinates.each do |c|
         if tsj != ''
           tsj += ','
         end
-        # Add the coordinate
         tsj += '['
         tsj += "#{c.longitude},#{c.latitude}"
         if c.elevation != nil

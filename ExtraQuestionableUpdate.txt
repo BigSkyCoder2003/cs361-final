@@ -1,0 +1,5 @@
+I was not sure if were were allowed to change the test file further than method names(as the README did not explicitly say we could), but if we were I would have:
+
+-removed object instantiation from inside other classes and moved them to gis.rb to help reduce class dependency
+
+*additional note: I couldn't figure out what "tsj" meant, but i would have changed it to an understandable name if i had figured it out (track segment j_____ ?)

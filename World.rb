@@ -7,14 +7,13 @@ class World
       @features.append(t)
     end
   
-    def to_geojson(indent=0)
-      # generate geoJSON output heading
+    def generate_geojson(indent=0)
       s = '{"type": "FeatureCollection","features": ['
       @features.each_with_index do |f,i|
         if i != 0
           s +=","
         end
-       s += f.get_json_feature
+       s += f.generate_json_feature
       end
       s + "]}"
     end
