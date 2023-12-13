@@ -9,11 +9,11 @@ class World
   
     def generate_geojson(indent=0)
       s = '{"type": "FeatureCollection","features": ['
-      @features.each_with_index do |f,index|
+      @features.each_with_index do |feature,index|
         if index != 0
           s +=","
         end
-       s += f.generate_json_feature
+       s += feature.generate_json_feature
       end
       s + "]}"
     end
